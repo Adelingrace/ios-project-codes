@@ -1,0 +1,16 @@
+import SpriteKit
+
+class GameScene: SKScene {
+
+    @IBOutlet weak var diceImageView: UIImageView!
+
+    func rollDice() -> Int {
+        return Int(arc4random_uniform(6)) + 1
+    }
+
+    @IBAction func rollButtonPressed(_ sender: Any) {
+        let roll = rollDice()
+        let diceImage = UIImage(named: "dice\(roll)")
+        diceImageView.image = diceImage
+    }
+}
